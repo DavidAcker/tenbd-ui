@@ -6,7 +6,7 @@ import { Component, OnInit, Input, AfterViewInit} from '@angular/core';
   styleUrls: ['./streamer-box.component.css']
 })
 export class StreamerBoxComponent implements OnInit, AfterViewInit {
-
+  panelOpenState: boolean = false;
   @Input() channel: string;
   videoId: string;
   videoSrcUrl: string;
@@ -27,7 +27,7 @@ export class StreamerBoxComponent implements OnInit, AfterViewInit {
     this.chatSrc = this.chatSrcUrl.replace(":channel", this.channel);
     this.channelLink = "https://www.twitch.tv/" + this.channel;
   }
-  
+
   ngAfterViewInit(): void {
     document.getElementById(this.videoId).setAttribute("src", this.videoSrc);
     document.getElementById(this.chatId).setAttribute("src", this.chatSrc);
